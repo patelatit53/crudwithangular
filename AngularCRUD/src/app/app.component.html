@@ -1,0 +1,59 @@
+
+<div class="page-data">
+  <form #userForm="ngForm"   (ngSubmit)="onSave(userForm.value)" novalidate>
+  <!-- <p>Is "myForm" valid? {{userForm.valid}}</p> -->
+
+ <table cellpadding="11">
+   <head>
+ 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+
+ <script
+ 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+ 	</head>
+
+<tr>
+<td>Name</td>
+<td>
+    <input name="id" type="hidden"     [(ngModel)]="id" />
+     <input name="name" type="text"  required  [(ngModel)]="name" />
+
+ </td>
+</tr>
+
+<tr>
+    <td>Address</td>
+    <td>    <input name="address" required  type="text"   [(ngModel)]="address" /></td>
+    </tr>
+
+ </table>
+ <td>
+     &nbsp;<input type="button" value="Save" value="{{valbutton}}" />
+   </td>
+</form>
+</div>
+<div class="page-data">
+     <ul class="err-area"></ul>
+</div>
+<div class="data-table">
+<table border="1" cellpadding="7" cellspacing="7">
+
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Address</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  <tr *ngFor="let kk of Repdata;let ind = index">
+
+    <td>{{ind + 1}}</td>
+    <td>{{kk.name}}</td>
+    <td>{{kk.address}}</td>
+    <td><a class="a-inside edit"(click)="edit(kk)" >Edit</a></td>
+    <td><a class="a-inside delete" (click)="delete(kk._id)" >Delete</a>  </td>
+  </tr>
+</table>
+</div>
